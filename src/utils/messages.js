@@ -1,4 +1,4 @@
-const welcomeMessage = `
+export const welcomeMessage = `
 \¡Bienvenido al Bot de precio de Bitcoin\\!
 Aquí tienes los comandos disponibles:
 
@@ -7,20 +7,13 @@ Aquí tienes los comandos disponibles:
 /clear \\- Borra los mensajes enviados por el bot
 `;
 
-const notCommandMessage = `
-        No soy un bot conversacional, pero puedo ayudarte con comandos\\! Prueba uno de los siguientes:\n\n${welcomeMessage.split('\n').slice(2).join('\n').trim()}
+export const notCommandMessage = (welcomeMessageBody) => `
+No soy un bot conversacional, pero puedo ayudarte con comandos\\! Prueba uno de los siguientes:\n\n${welcomeMessageBody.split('\n').slice(2).join('\n').trim()}
 `;
 
-const errorMessage = `
-    \¡Comando no válido\\!  
-    Por favor, usa uno de los siguientes comandos:  
+export const errorMessage = (welcomeMessageBody) => `
+¡Comando no válido\\!  
+Por favor, usa uno de los siguientes comandos:  
 
-    ${welcomeMessage.split('\n').slice(2).join('\n').trim()}
+${welcomeMessageBody.split('\n').slice(2).join('\n').trim()}
 `;
-
-
-module.exports = {
-  welcomeMessage,
-  notCommandMessage,
-  errorMessage
-}

@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config()
 
 export const enviroment = {
   URL_BASE: process.env.API_BASE || '',

@@ -1,12 +1,12 @@
-import { getBitcoinPrice } from "../utils/api";
-import { sendMessage } from "../utils/telegram";
+import { getBitcoinPrice } from "../utils/api.js";
+import { sendMessage } from "../utils/telegram.js";
 
 export const priceCommand = async (bot, message, messageIds) => {
   const chatId = message.chat.id;
   const price = await getBitcoinPrice();
-  const message = price ? 
+  const response = price ? 
       `El precio de Bitcoin es: ${price} USDT` : 
     'No se pudo obtener el precio de Bitcoin';
   
-  sendMessage(bot, chatId, message, messageIds);
+  sendMessage(bot, chatId, response, messageIds);
 }

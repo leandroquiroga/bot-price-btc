@@ -1,5 +1,5 @@
 import axios from "axios";
-import { enviroment } from "../config/enviroment";
+import { enviroment } from "../config/enviroment.js";
 
 export const getBitcoinPrice = async () => { 
   try {

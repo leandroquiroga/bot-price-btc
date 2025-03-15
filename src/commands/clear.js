@@ -1,4 +1,4 @@
-import { deleteMessages, sendMessage } from '../utils/telegram'
+import { deleteMessages, sendMessage } from '../utils/telegram.js'
 
 export const clearCommand = async (btoa, message, messageIds) => { 
   const chatId = message.chat.id;
