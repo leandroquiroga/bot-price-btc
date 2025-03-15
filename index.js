@@ -9,8 +9,9 @@ const cron = require('node-cron');
 const token_telegram = process.env.API_KEY_BOT_TELEGRAM;
 const bot_telegram = new TelegramBot(token_telegram, { polling: true });
 
-const validCommands = ['start', 'clear', 'price'];
-const image = './public/image/image_btc.jpg';
+// const validCommands = ['start', 'clear', 'price'];
+// const image = './public/image/image_btc.jpg';
+
 let messageIds = [];
 // Mensaje de bienvenida con comandos
 const welcomeMessage = `
