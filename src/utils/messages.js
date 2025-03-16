@@ -4,6 +4,7 @@ Aquí tienes los comandos disponibles:
 
 /start \\- Muestra este mensaje de bienvenida
 /price \\- Obtiene el precio actual de Bitcoin
+/alert \\- Obtiene una alerta de precio de Bitcoin
 /clear \\- Borra los mensajes enviados por el bot
 `;
 
