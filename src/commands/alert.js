@@ -1,4 +1,4 @@
-import { getBitcoinPrice } from "../utils/api.js";
+import { getPrice } from "../utils/api.js";
 
 export const alertCommand = (bot, msg, match, alerts) => {
 
@@ -14,7 +14,7 @@ export const alertCommand = (bot, msg, match, alerts) => {
 
 export const checkAlerts = async (bot, alerts) => {
   try {
-    const response = await getBitcoinPrice();
+    const response = await getPrice();
     const currentPrice = parseFloat(response);
     alerts.forEach((alert, index) => {
       if (currentPrice >= alert.targetPrice) {
