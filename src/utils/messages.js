@@ -18,3 +18,6 @@ Por favor, usa uno de los siguientes comandos:
 
 ${welcomeMessageBody.split('\n').slice(2).join('\n').trim()}
 `;
+
+export const pricePromptMessage = '¿De qué cripto querés saber el precio? \\(Ej: /BTC, /ETH, /SOL\\)';
+export const invalidCryptoMessage = 'No reconocí esa cripto. Usá /BTC, /ETH, /SOL, etc';
