@@ -1,12 +1,25 @@
-import { getBitcoinPrice } from "../utils/api.js";
+import { getPrice } from "../utils/api.js";
+import { pricePromptMessage, invalidCryptoMessage } from "../utils/messages.js";
 import { sendMessage } from "../utils/telegram.js";
 
-export const priceCommand = async (bot, message, messageIds) => {
+export const priceCommand = async (bot, message, messageIds, awaitingPriceResponse) => {
   const chatId = message.chat.id;
-  const price = await getBitcoinPrice();
-  const response = price ? 
-      `El precio de Bitcoin es:  ${price.toString().replace('.', '\\.')} USDT` : 
-    'No se pudo obtener el precio de Bitcoin';
-  
-  sendMessage(bot, chatId, response, messageIds);
+  awaitingPriceResponse.add(chatId);
+  sendMessage(bot, chatId, pricePromptMessage, messageIds);
+}
+
+
+export const handlePriceResponse = async (bot, message, text, messageIds) => {
+  const chatId = message.chat.id;
+  const crypto = text.trim().replace('/', '');
+  console.log(crypto)
+  try {
+    const price = await getPrice(bot, chatId, messageIds, crypto);
+    const response = `El precio de ${crypto} es:  ${price.toString().replace('.', '\\.')} USDT` 
+    sendMessage(bot, chatId, response, messageIds);
+  } catch (error) {
+    const messageError = invalidCryptoMessage
+    sendMessage(bot, chatId, messageError, messageIds);
+    
+  }
 }
